@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
 
+/* Variable que permite mostrar los valores en pantalla a través del ID 'root' */
 const root = document.getElementById('root')
 
-// const elemento = React.createElement(componente, propiedades, hijos)
-// const elemento = React.createElement('h1', {className: 'saludo'}, 'Hola mundo')
-
+/* Función que permite renderizar el componente 'App' ya importado y llamar a la variable 'root' */
 ReactDOM.render(<App />, root);
+
+// ReactDOM.render(<h1 className="saludo">Hola Mundo</h1>, root);
