@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 // const mayorEdad = edad => edad > 18
 
@@ -11,14 +12,16 @@ import PropTypes from 'prop-types';
 //     price: '50 USD'
 // }
 
-const Curso = ({title, image, price, profesor}) => (
+const CourseCard = ({id, title, image, price, professor}) => (
         <article className="card">
 
             <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-                    <img 
-                    src={image ? image : 'https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg'} 
-                    alt={title ? title : 'No hay título'}
-                    />
+                    <Link to={`/cursos/${id}`}>
+                        <img 
+                        src={image ? image : 'https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg'} 
+                        alt={title ? title : 'No hay título'}
+                        />
+                    </Link>
             </div>
 
             <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
@@ -27,7 +30,7 @@ const Curso = ({title, image, price, profesor}) => (
 
                 <div className="s-main-center">
                 <div className="s-main-center">
-                    {profesor}
+                    {professor}
                 </div>
             <a className="button--ghost-alert button--tiny" href="https://ed.team">{`$ ${price}`}</a>
                 </div>
@@ -36,18 +39,19 @@ const Curso = ({title, image, price, profesor}) => (
         </article>
 )
 
-Curso.propTypes = {
+CourseCard.propTypes = {
     title: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
     profesor: PropTypes.string
 }
 
-Curso.defaultProps = {
+CourseCard.defaultProps = {
+    id: '',
     title: 'No se encontró el título',
     image: 'https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg',
     price: '--',
     profesor: ''
 }
 
-export default Curso;
+export default CourseCard;

@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './components/App'
 
 /* Variable que permite mostrar los valores en pantalla a través del ID 'root' */
 const root = document.getElementById('root')

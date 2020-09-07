@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Banner = () => (
     <div className="main-banner img-container" id="main-banner">
@@ -15,4 +15,4 @@ const Banner = () => (
         </div>
 )
 
-export default Banner;
+export default Banner
