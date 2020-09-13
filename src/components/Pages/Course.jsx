@@ -1,5 +1,6 @@
 import React from 'react'
 
+/* Función que crea una constante 'cursos' para almacenar un array con objetos dinámicos */
 const cursos = [
     {
         'id': 1,
