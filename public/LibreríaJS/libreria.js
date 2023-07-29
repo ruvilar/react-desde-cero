@@ -28,26 +28,51 @@ export function render(element, domElement) {
 }; */
 
 
-export function createElement(tipo, listaAtributos = {}, hijos = []) {
-    let elemento = createElement(tipo);
+export function createElement(type, attributesList = {}, children = []) {
+    let element = document.createElement(type);
+    // Ejemplo: <header></header>
 
-    let keys = Object.keys(listaAtributos);
-    keys.map(key => elemento.setAttribute(key, listaAtributos[key]));
+    let attributes = Object.keys(attributesList);
+    attributes.map(attribute => element.setAttribute(attribute, attributesList[attribute]));
+    // Ejemplo:
+    //   attributesList = {
+    //      id: mainHeader,
+    //      className: main-header
+    // }
+    // <header id="mainHeader" className="main-header"></header>
 
-    hijos.map(hijo => hijoRenderizado(elemento, hijo));
+    children.map(child => renderChild(element, child));
+    // Ejemplo:
+    //   children = [
+    //      id: mainContainer,
+    //      className: main-container
+    // ]
+    // <header id="mainHeader" className="main-header">
+    //   <div id="mainContainer" className="main-container"></div>
+    // </header>
 
-    return elemento;
+    return element;
 };
 
-export function hijoRenderizado(elemento, hijo) {
-     if(typeof hijo === 'string') {
-        elemento.innerHTML = elemento.innerHTML + hijo;
+function renderChild(element, child) {
+     if(typeof child === 'string') {
+        element.innerHTML += child;
+        // Ejemplo:
+        // span
 
         return;
      }
-     elemento.appendChild(hijo);
+     element.appendChild(child);
+     // Ejemplo:
+     // <span></span>
 };
 
-export function renderizado(elemento, DOMelemento) {
-    DOMelemento.appendChild(elemento);
+export function render(element, DOMelement) {
+    DOMelement.appendChild(element);
+    // Ejemplo:
+    // <header id="mainHeader" className="main-header">
+    //   <div id="mainContainer" className="main-container">
+    //      <span></span>
+    //   </div>
+    // </header>
 }
