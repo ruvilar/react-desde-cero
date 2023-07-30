@@ -19,7 +19,7 @@ const Header = createElement('header', {
 }, [Logo, Nav]);
 // <header className="main-header">
 //   <img className="logo" alt="Logo" src="./images/logo.png" />
-//   <nav className="main-nav"></nav>     
+//   <nav className="main-nav"></nav>    
 // </header>
 
 render(Header, document.getElementById('root'));

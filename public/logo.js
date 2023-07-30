@@ -1,7 +1,7 @@
 const Logo = () => {
     return (
         <div id="main-logo">
-            <img src="./images/logo.png" alt="Logo" className="logo" />
+            <img src="./src/logo.svg" alt="Logo" className="logo" />
         </div>
     )
 }
@@ -14,7 +14,7 @@ const Logo = () => {
 const saludo = (
     <>
         <h1>Hola!</h1>
-        <img src="./images/logo.png" />
+        <img src="./src/logo.svg" />
     </>
 )
 

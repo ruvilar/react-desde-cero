@@ -1,7 +1,5 @@
-import React from 'react'
-import CourseCard from './CourseCard'
+import CourseCard from './CourseCard';
 
-/* Función que crea una constante 'cursos' para almacenar un array con objetos dinámicos */
 const courses = [
     {
         'id': 1,

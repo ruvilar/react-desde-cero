@@ -48,7 +48,7 @@ export function createElement(type, attributesList = {}, children = []) {
     //      className: main-container
     // ]
     // <header id="mainHeader" className="main-header">
-    //   <div id="mainContainer" className="main-container"></div>
+    //   <img className="logo" alt="Logo" src="./images/logo.png" />
     // </header>
 
     return element;
@@ -58,21 +58,20 @@ function renderChild(element, child) {
      if(typeof child === 'string') {
         element.innerHTML += child;
         // Ejemplo:
-        // span
+        // nav
 
         return;
      }
      element.appendChild(child);
      // Ejemplo:
-     // <span></span>
+     // <nav></nav>
 };
 
 export function render(element, DOMelement) {
     DOMelement.appendChild(element);
     // Ejemplo:
     // <header id="mainHeader" className="main-header">
-    //   <div id="mainContainer" className="main-container">
-    //      <span></span>
-    //   </div>
+    //   <img className="logo" alt="Logo" src="./images/logo.png" />
+    //   <nav className="main-nav"></nav>
     // </header>
 }
