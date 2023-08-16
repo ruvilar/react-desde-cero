@@ -1,0 +1,11 @@
+.container-cupcakes {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px;
+}
+
+.cupcake img {
+    max-width: 300px;
+    max-height: 200px;
+}
