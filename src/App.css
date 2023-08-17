@@ -9,3 +9,11 @@
     max-width: 300px;
     max-height: 200px;
 }
+
+.imageSold {
+    filter: grayscale(1);
+}
+
+.imageSold2 {
+    filter: grayscale(.5);
+}

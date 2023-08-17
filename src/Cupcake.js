@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+// import React, {Component} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
+import './App.css';
 
 /***********************COMPONENTE FUNCIONAL */
 /* function Cupcake({color, flavor, image}) {
@@ -12,7 +14,7 @@ import React, {Component} from 'react';
 }; */
 
 /***********************COMPONENTE DE CLASE */
-class Cupcake extends Component {
+/* class Cupcake extends Component {
     constructor() {
         super()
         // Estado con un valor por defecto
@@ -68,9 +70,7 @@ componentDidUpdate() {
             </div>
         )
     }
-};
-
-export default Cupcake;
+}; */
 
 
 /***************************CICLO DE VIDA DE LOS COMPONENTES 
@@ -85,3 +85,51 @@ export default Cupcake;
  * ---------------------------------------------------------
  * - componentWillUnmount() - Se desmontará
 */
+
+
+/***********************COMPONENTE FULL-STATE FUNCIONAL */
+
+const Cupcake = ({image, color, flavor}) => {
+    
+    const [sold, setSold] = useState(false);
+    const [reserved, setReserved] = useState(false);
+    const imageCupcake = useRef();
+    const sell = () => {
+        setSold(true);
+        setReserved(true);
+        const imageElem = imageCupcake.current;
+        imageElem.classList.add('imageSold');
+    };
+    const reserve = () => setReserved(true);
+
+    /* useEffect(() => {
+        // console.log('Dato registrado', Date.now());
+        // console.log(imageCupcake.current);
+        const imageElem = imageCupcake.current;
+        if(reserved) {
+            imageElem.classList.add('imageSold');
+        }
+    }, [reserved]); */
+    
+    return (
+        <div className="cupcake" id="test">
+            <img ref={imageCupcake} src={image} alt={flavor} />
+            <h2>{`Color: ${color}`}</h2>
+            <p>{`Sabor: ${flavor}`}</p>
+            <p><b>Estado: </b>{
+            sold ? 'Vendido' : 'A la Venta'
+            }</p>
+            {
+            !sold && <button id="testButton" onClick={sell}>Vender</button>
+            }
+            <p><b>Disponibilidad: </b>{
+            reserved ? 'Reservado' : 'libre'
+            }</p>
+            {
+            !reserved && <button id="testButton2" onClick={reserve}>Reservar</button>
+            }
+        </div>
+    )
+};
+
+export default Cupcake;
