@@ -87,29 +87,35 @@ componentDidUpdate() {
 */
 
 
-/***********************COMPONENTE FULL-STATE FUNCIONAL */
+/***********************COMPONENTE STATE-FULL FUNCIONAL */
 
 const Cupcake = ({image, color, flavor}) => {
-    
-    const [sold, setSold] = useState(false);
-    const [reserved, setReserved] = useState(false);
+    const [sold, setSold] = useState(false),
+    [reserved, setReserved] = useState(false);
+    // Estado: valor predeterminado, Función: valor a actualizar
+
     const imageCupcake = useRef();
+    // Hace referencia a elementos del DOM virtual para su manipulacion
+
     const sell = () => {
         setSold(true);
         setReserved(true);
+
         const imageElem = imageCupcake.current;
         imageElem.classList.add('imageSold');
+        // Crea la clase 'imageSold' en elemento 'img' cuando la función 'sell()' se ejecute
     };
     const reserve = () => setReserved(true);
 
-    /* useEffect(() => {
+    useEffect(() => {
         // console.log('Dato registrado', Date.now());
-        // console.log(imageCupcake.current);
-        const imageElem = imageCupcake.current;
+        console.log(imageCupcake.current);
+        /* const imageElem = imageCupcake.current;
         if(reserved) {
-            imageElem.classList.add('imageSold');
-        }
-    }, [reserved]); */
+            imageElem.classList.add('imageSold2');
+        } */
+    }, [sold, reserved]);
+    // 'sold' y 'reserved' son valores a ejecutar para su análisis
     
     return (
         <div className="cupcake" id="test">
@@ -118,12 +124,14 @@ const Cupcake = ({image, color, flavor}) => {
             <p>{`Sabor: ${flavor}`}</p>
             <p><b>Estado: </b>{
             sold ? 'Vendido' : 'A la Venta'
+            // Si la variable 'sold' es (? true) que muestre el primer valor, si es (: false) que muestre el segundo valor
             }</p>
             {
             !sold && <button id="testButton" onClick={sell}>Vender</button>
+            // Si la variable 'sold' no es -true- que muestre el elemento 'button'
             }
             <p><b>Disponibilidad: </b>{
-            reserved ? 'Reservado' : 'libre'
+            reserved ? 'Reservado' : 'Libre'
             }</p>
             {
             !reserved && <button id="testButton2" onClick={reserve}>Reservar</button>
